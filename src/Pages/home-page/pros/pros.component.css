@@ -1,0 +1,24 @@
+.pros i{
+  color: var(--icon-color);
+
+font-size: 2.25rem;
+  font-weight: 600;
+  display: inline-block;
+}
+.pros  h3{
+  font-weight: 600;
+  font-size: 18px;
+}
+.pros  p{
+  font-weight: 300;
+  font-size: 14px;
+  color: #9ca3af
+;
+}
+.pros::after
+{
+  content: "";
+  width: 1px;
+  height: 100px;
+  background-color: aliceblue;
+}

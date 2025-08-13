@@ -1,0 +1,91 @@
+<div class="navFull bg-white shadow-sm">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+
+
+        <a class="navbar-brand" href="#" style="font-size: 24px; font-weight: 600;">
+          Aviato <span class="text-success d-none d-lg-inline">Shopper</span>
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+          <ul class="navbar-nav d-flex gap-3 mb-2 mb-lg-0" style="font-weight: 300; font-size: 16px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" [routerLink]="">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/brand']">Brands</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacts</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="d-flex align-items-center gap-2">
+
+          <!-- Cart -->
+          <button type="button" class="btn position-relative" routerLink="/details">
+            <i class="bi bi-cart" style="font-size: 20px;"></i> Cart <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-1">
+
+            </span>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-1"></span>
+          </button>
+
+          <!-- Wishlist -->
+          <button type="button" class="btn position-relative d-none d-lg-block">
+            <i class="bi bi-heart-fill" style="font-size: 20px;"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill mt-1 bg-danger">0</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button class="btn" (click)="toggleTheme()">
+            <i *ngIf="currenTheme === 'light'" class="bi bi-brightness-high"
+              style="color: #FACC15; font-size: 24px;"></i>
+            <i *ngIf="currenTheme === 'dark'" class="bi bi-moon" style="color: #93C5FD; font-size: 24px;"></i>
+          </button>
+
+          <!-- User Dropdown -->
+          <div class="dropdown" *ngIf="!isLoggedIn">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle" style="font-size: 30px;"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item d-flex align-items-center" routerLink="/login"><i
+                    class="bi bi-person-fill me-2"></i>Login</a></li>
+              <li><a class="dropdown-item d-flex align-items-center" routerLink="/signup"><i
+                    class="bi bi-heart-fill me-2"></i>Register</a></li>
+            </ul>
+          </div>
+          <!-- User Dropdown -->
+          <div class="dropdown" *ngIf="isLoggedIn">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle" style="font-size: 30px;"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item d-flex align-items-center" routerLink="/profile"><i
+                    class="bi bi-person-fill me-2"></i>Profile</a></li>
+              <li><button class="dropdown-item d-flex align-items-center" (click)="LogOut()"><i
+                    class="bi bi-heart-fill me-2"></i>LogOut</button></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>

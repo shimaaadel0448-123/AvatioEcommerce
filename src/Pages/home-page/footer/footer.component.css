@@ -1,0 +1,26 @@
+div  .icon{
+  width: 40px; height: 40px; border-radius: 50%;
+}
+div  .icon i{
+font-size: 18px;
+color: var(--bg-color);
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+[class*="col-"] {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.footer
+{
+  background-color: var(--nav-bg);
+}
+.form{
+  background-color: var(--bg-color);
+}
+body {
+  overflow: hidden;
+}

@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --nav-bg: #f8f9fa;
+  --nav-text: #000;
+  --text-green: #16a34a;
+  --icon-color: #4F46E5;
+  --footer-color: #F3F4F6;
+  --hover: #F3F4F6;
+  --remove: #FEE1E1;
+  --remove-txt: #DD2828;
+  --card-bg:#F6F8FA;
+
+}
+
+[data-theme="dark"] {
+  --bg-color: #070B17;
+  --text-color: #ffffff;
+  --nav-bg: #111827;
+  --nav-text: #ffffff;
+  --text-green: #4ade80;
+  --icon-color: #818CF8;
+  --footer-color: #111827;
+  --hover: #4B5563;
+  --remove: #DC264A;
+  --remove-txt: #ffffff;
+  --card-bg:#374151;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.navFull {
+  background-color: var(--nav-bg) !important;
+}
+
+.navbar .nav-link,
+.navbar-brand {
+  color: var(--nav-text) !important;
+}
+
+.btnCart {
+  color: var(--text-color);
+}
+
+.dropdown-menu {
+  background-color: var(--bg-color);
+}
+
+.dropdown-menu li a {
+  color: var(--text-color);
+}
+
+.nav-item:hover a {
+  border-radius: 15px;
+  background-color: #BDC2CA;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  color: #3B8FE0;
+}
+
+.mainDescription {
+  color: var(--text-color);
+}

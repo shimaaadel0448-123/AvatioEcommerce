@@ -1,0 +1,12 @@
+.dropdown-toggle::after
+{
+  display: none;
+}
+
+i,.navbar,button{
+  color: var(--text-color);
+}
+.navbar-toggler-icon
+{
+  color: var(--text-color) !important;
+}

@@ -1,0 +1,26 @@
+<div class="container">
+  <nav class="navbar navbar-dark bg-custom-dark p-3 d-flex justify-content-between">
+    <div class="d-flex">
+      <a class="btn  btn-custom-back me-3" href="#">← Go Back</a>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item"><a class="nav-link text-light" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="#">Brands</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h1 class="text-center explore text-white title-custom mb-5">Explore Our Brands</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-6 mb-4" *ngFor="let brand of brands">
+        <div class="card bg-custom-card text-white card-custom d-flex m-3 flex-row align-items-center">
+          <img [src]="brand.logo" class="m-3" width="96" height="96" alt="">
+          <div class="card-body p-3 m-3">
+            <h2 class="card-title mb-2">{{ brand.name }}</h2>
+            <p class="card-text truncate-2">{{ brand.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

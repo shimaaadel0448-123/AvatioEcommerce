@@ -1,0 +1,17 @@
+{
+  "/cart": {
+    "target": "https://mmy2.pythonanywhere.com",
+    "secure": true,
+    "changeOrigin": true
+  },
+  "/accounts": {
+    "target": "https://mmy2.pythonanywhere.com",
+    "secure": true,
+    "changeOrigin": true
+  },
+  "/products": {
+    "target": "https://mmy2.pythonanywhere.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

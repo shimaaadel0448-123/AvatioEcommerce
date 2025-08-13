@@ -1,0 +1,16 @@
+.bi-plus,.bi-dash
+{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: (--bg-color);
+  color: (--text-color);
+}
+.bi-plus,.bi-dash:hover
+{
+background-color: #D1D5DB;
+}
