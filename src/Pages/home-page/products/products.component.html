@@ -1,5 +1,12 @@
 <div class="container">
   <h1>Latest Products</h1>
+
+  <div class="d-flex justify-content-center my-5" *ngIf="isLoading">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-12 col-sm-6 my-sm-3 col-md-4 col-lg-3 d-flex justify-content-center"
       *ngFor="let product of prodctList">
