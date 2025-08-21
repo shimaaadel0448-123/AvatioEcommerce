@@ -36,7 +36,8 @@ export class LoginComponent {
       const formValue = this.loginForm.value;
       this.auth.login(formValue).subscribe({
         next: (res) => {
-          localStorage.setItem("token",res.data.tokens.access_token)
+          if (typeof window !== 'undefined' && localStorage)
+          {localStorage.setItem("token",res.data.tokens.access_token)}
           this.auth.isLogged()
           this.showSuccessAlert()
           this.router.navigate(['/home']);

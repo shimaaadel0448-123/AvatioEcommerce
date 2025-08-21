@@ -1,7 +1,7 @@
 .btn-custom-back {
   padding: 5px 15px;
-  font-size: 14px;
-
+  font-size: 16px;
+color: var(--text-color);
 }
 
 .nav-link {
@@ -54,7 +54,7 @@
 
 .truncate-2 {
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* عرض سطرين فقط */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -68,19 +68,21 @@
 .row {
   justify-content: center;
 }
-
 .card {
   background-color: var(--card-bg);
   color: var(--text-color);
 }
-
+.back
+{
+  background-color: var(--card-bg);
+  border-radius:10px 0 0 10px ;
+}
 @media (max-width: 768px) {
   .card-custom {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
-
   .card-custom img {
     margin-bottom: 10px;
   }

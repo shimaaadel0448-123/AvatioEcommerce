@@ -5,7 +5,7 @@
   justify-content: space-between;
   gap: 15px;
   border-radius: 10px;
-  flex-wrap: wrap; /* يخلي العناصر تنزل تحت بعض لو المساحة ضيقة */
+  flex-wrap: wrap;
 }
 
 .item img {
@@ -67,14 +67,11 @@
   font-size: 18px;
 }
 
-/* Cart Summary نفس خلفية item */
 .cart-summary {
   background: var(--card-bg);
   border-radius: 10px;
   color: var(--text-color);
 }
-
-/* جعل التصميم متجاوب */
 @media (max-width: 768px) {
   .item {
     flex-direction: column;

@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Iproduct } from '../../../Module/iproduct';
 import { CommonModule } from '@angular/common';
 import { FetchProductsService } from '../../../services/proucts.service';
 import Swal from 'sweetalert2';
 import { CartService } from '../../../services/cart.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrl: './products.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class ProductsComponent implements OnInit {
   prodctList: Iproduct[] = [];
@@ -17,7 +20,7 @@ export class ProductsComponent implements OnInit {
   showModal = false;
   isFav = false
   favourites: Iproduct[] = []
-  constructor(private products: FetchProductsService, private cartSercise: CartService) {
+  constructor(private products: FetchProductsService, private cartSercise: CartService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -26,6 +29,8 @@ export class ProductsComponent implements OnInit {
         next: (data) => {
           this.prodctList = data.data.slice(4, 8);
           this.isLoading = false
+
+          console.log(data.data)
         },
         error: (err) => {
           console.log(err)
@@ -80,6 +85,7 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
+
 }
 
 

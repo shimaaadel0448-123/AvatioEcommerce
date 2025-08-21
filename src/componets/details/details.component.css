@@ -1,0 +1,74 @@
+.btn-custom-back {
+  padding: 5px 15px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+.back
+{
+  background-color: var(--card-bg);
+  border-radius:10px 0 0 10px ;
+  -webkit-border-radius:10px 0 0 10px ;
+  -moz-border-radius:10px 0 0 10px ;
+  -ms-border-radius:10px 0 0 10px ;
+  -o-border-radius:10px 0 0 10px ;
+}
+.disc{
+  line-height: 32px;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--details);
+}
+
+.crease {
+  all: unset; /* نبدأ من الصفر */
+  display: flex; /* عشان العلامة + أو - تكون في النص */
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid var(--details);
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.crease:hover {
+  background-color: var(--hover);
+  scale: 1.1;
+}
+.w-100{
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+}
+.w-100:hover
+{
+  scale: 1.1;
+}
+.nav-pills .nav-link {
+  border-radius: 50px;
+  background: var(--card-bg);
+  color: #9ca3af;
+  font-weight: 500;
+  margin: 0 5px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--bg-color);
+  color: #3b82f6;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.nav-pills .nav-link:hover {
+  background: var(--bg-color);
+  color: #60a5fa;
+}

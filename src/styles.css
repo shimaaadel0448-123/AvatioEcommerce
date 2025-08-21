@@ -1,5 +1,5 @@
 * {
-  font-family: "Chakra Petch", sans-serif;
+  font-family: "Chakra Petch",  Arial, sans-serif;;
 }
 
 :root {
@@ -14,7 +14,9 @@
   --remove: #FEE1E1;
   --remove-txt: #DD2828;
   --card-bg:#F6F8FA;
-
+  --details:#374151;
+  --button-bg:#4B5563;
+  --cart-btn:#4B5563;
 }
 
 [data-theme="dark"] {
@@ -29,6 +31,10 @@
   --remove: #DC264A;
   --remove-txt: #ffffff;
   --card-bg:#374151;
+  --details:#d1d5db;
+  --button-bg:#4B5563;
+   --cart-btn:#070B17;
+
 }
 
 body {

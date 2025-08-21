@@ -12,7 +12,7 @@
         <div *ngIf="!isLoading">
           <div class="item p-3 my-3" *ngFor="let product of addedProducts">
             <div>
-              <img [src]="product.product_image" alt="" class="img-fluid product-img rounded"
+              <img loading="lazy" [src]="product.product_image" alt="" class="img-fluid product-img rounded"
                 style="width: 96px; height: 96px; object-fit: cover;">
             </div>
             <div class="detail">
@@ -21,9 +21,8 @@
             </div>
 
             <div class="buttons">
-              <button id="decrease">-</button>
+              <span>Quantity:</span>
               <span id="quantity-value">{{ product.quantity }}</span>
-              <button id="increase">+</button>
             </div>
 
             <div class="price">

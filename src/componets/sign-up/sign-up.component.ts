@@ -67,8 +67,7 @@ export class SignUpComponent implements OnInit {
       };
       this.authService.register(newUser).subscribe(
         {
-          next: (res) => {
-            console.log(res);
+          next: () => {
             localStorage.setItem("name",formValue.firstName+' '+formValue.lastName)
             this.showSuccessAlert();
             this.router.navigate(['/login']);

@@ -1,0 +1,142 @@
+<div class="details">
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-custom-dark p-3 d-flex justify-content-between">
+      <div class="d-flex">
+        <div class="back">
+          <a class="btn btn-custom-back me-3" routerLink="/home">← Go Back</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <!-- Product Images-->
+      <div class="col-lg-5 my-4">
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let img of images; let i = index" [class.active]="i === 0">
+              <img loading="lazy" [src]="'https://mmy2.pythonanywhere.com' + img" loading="lazy" alt="product image" width="300" height="384">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 my-4">
+        <h3 style="font-weight: 700; font-size: 24px; " class="my-4">{{ productDetails?.name }}</h3>
+        <h4 style="font-weight: 600; font-size: 20px;color: #374151;" class="my-4">{{ productDetails.price | currency }}
+        </h4>
+
+        <!-- Rating -->
+        <div class="mb-3">
+          <span class="text-warning">★★★★☆</span>
+          <small> ({{productDetails?.reviewrating.length}} Reviews)</small>
+        </div>
+
+        <p class="disc">{{ productDetails.description }}</p>
+
+        <div class="d-flex align-items-center my-3">
+          <strong class="mr-3" style="font-weight: 600; font-size: 18px;">Quantity:</strong>
+          <button class="crease mr-2" style=" font-weight: 600; font-size: 18px;  " (click)="decreaseQty()">-</button>
+          <span class="mx-3" style="font-size: 20px;font-style: 600;">{{ quantity }}</span>
+          <button class="crease " (click)="increaseQty()">+</button>
+        </div>
+
+        <p><strong>Category:</strong> {{ productDetails.category.name }}</p>
+        <p><strong>Brand:</strong> {{ productDetails.PRDBrand.name }}</p>
+
+        <button class="btn w-100 mt-2" (click)="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+    <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="desc-tab" data-bs-toggle="pill" data-bs-target="#desc" type="button"
+          role="tab">
+          Description
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="review-tab" data-bs-toggle="pill" data-bs-target="#reviews" type="button"
+          role="tab">
+          Reviews ({{productDetails?.reviewrating.length}} reviews)
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content p-3 rounded " id="pills-tabContent">
+      <div class="tab-pane fade show active" style="line-height: 32px;" id="desc" role="tabpanel"
+        aria-labelledby="desc-tab">
+        <p style="border-radius: 50%;">
+          {{ productDetails?.description }}
+        </p>
+      </div>
+      <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="review-tab">
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-8">
+            <h3 style="font-weight: 700; font-size: 24px; " class="my-4">Reviews for "{{ productDetails?.name }}"</h3>
+
+            <div class="mb-4" *ngFor="let review of productDetails?.reviewrating">
+              <div class="card card-custom d-flex m-3 flex-row">
+                <img loading="lazy" [src]="review.user.profile.image" style="border-radius: 50%" class="m-3" width="53" height="53"
+                  alt="user">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="card-title mb-2" style="font-weight: 600; font-size: 18px;">
+                      {{ review.user.full_name }}
+                    </h2>
+                    <small class="text-muted">
+                      {{ review.updated_at | date:'medium' }}
+                    </small>
+                  </div>
+                  <div class="text-warning mb-2">
+                    <div class="text-warning mb-2">
+                      <ng-container *ngFor="let star of getFullStars(review.rating)">★</ng-container>
+                      <ng-container *ngIf="getHalfStar(review.rating)">☆</ng-container>
+                      <ng-container *ngFor="let star of getEmptyStars(review.rating)">☆</ng-container>
+                    </div>
+                  </div>
+                  <h6 class="card-title mb-2" style="font-weight: 600; font-size: 16px;">
+                    {{ review.subject }}
+                  </h6>
+                  <p class="card-text" style="font-weight: 300; font-size: 16px; color: #4b5563;">
+                    {{ review.review }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-4">
+            <div class="card p-3 m-3">
+              <h4 class="mb-3">Leave a review</h4>
+
+              <form>
+                <div class="mb-3">
+                  <label class="form-label">How do you rate this product?</label><br>
+                  <span class="text-warning">
+                    <span *ngFor="let star of [1,2,3,4,5]" style="cursor:pointer; font-size: 22px;">
+                      ☆
+                    </span>
+                  </span>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Subject" name="subject" required>
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control" rows="3" placeholder="Your Review" name="comment" required></textarea>
+                </div>
+
+                <button class="btn btn-primary w-100" type="submit">
+                  Submit Review
+                </button>
+              </form>
+              <ng-template #notPurchased>
+                <button class="btn btn-secondary w-100" disabled>
+                  YOU MUST PURCHASE THIS PRODUCT TO POST A REVIEW
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

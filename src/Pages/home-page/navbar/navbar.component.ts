@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { Route, Router, RouterLink } from '@angular/router';
@@ -8,7 +8,9 @@ import { AuthService } from '../../../services/auth.service';
   selector: 'app-navbar',
   imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class NavbarComponent implements OnInit {
   currenTheme: string = 'light';
@@ -18,8 +20,10 @@ export class NavbarComponent implements OnInit {
     private auth: AuthService,
     private router: Router) { }
   ngOnInit(): void {
-    const savedTheme = localStorage.getItem('theme');
-    this.setTheme(savedTheme || 'light');
+    if (typeof window !== 'undefined' && localStorage) {
+      const savedTheme = localStorage.getItem('theme');
+      this.setTheme(savedTheme || 'light');
+    }
 
     this.auth.isLoggedIn$.subscribe(
       status => {

@@ -26,11 +26,11 @@ export class CartDetailsComponent implements OnInit {
 
         this.subTotal = this.addedProducts.reduce((sum, product) => sum + product.sub_total, 0);
         this.tax = this.addedProducts.reduce((sum, product) => sum + product.tax_amount, 0);
-                    this.isLoading = false;
+        this.isLoading = false;
 
       },
       error: (err) => {
-                    this.isLoading = false;
+        this.isLoading = false;
 
         if (err.status === 401) {
           Swal.fire('Error', 'Please Login First', 'error');
